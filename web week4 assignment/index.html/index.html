@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpendWise Dashboard Shell</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <!-- 1. SIDEBAR NAVIGATION -->
+    <aside class="sidebar">
+      <div class="brand">
+        <h2>SpendWise</h2>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="#" class="nav-item">Analytics</a>
+        <a href="#" class="nav-item">Transactions</a>
+        <a href="#" class="nav-item">Budgets</a>
+        <a href="#" class="nav-item">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT AREA AREA -->
+    <div class="main-wrapper">
+      
+      <!-- 2. HEADER -->
+      <header class="header">
+        <div class="header-title">
+          <h1>Financial Overview</h1>
+          <p>Welcome back, Alex! Here is your current spend breakdown.</p>
+        </div>
+        <div class="user-profile">
+          <span class="user-name">Alex Morgan</span>
+          <div class="avatar">AM</div>
+        </div>
+      </header>
+
+      <!-- 3. SIX CATEGORY CARDS GRID -->
+      <main class="dashboard-content">
+        <div class="cards-grid">
+          
+          <!-- Card 1: Food -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Food & Dining</span>
+              <span class="badge badge-warning">High</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$450.00</p>
+              <p class="budget-limit">of $600.00 budget</p>
+            </div>
+          </article>
+
+          <!-- Card 2: Transport -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Transport</span>
+              <span class="badge badge-success">On Track</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$120.00</p>
+              <p class="budget-limit">of $200.00 budget</p>
+            </div>
+          </article>
+
+          <!-- Card 3: Rent -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Rent & Housing</span>
+              <span class="badge badge-neutral">Fixed</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$1,200.00</p>
+              <p class="budget-limit">of $1,200.00 budget</p>
+            </div>
+          </article>
+
+          <!-- Card 4: Entertainment -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Entertainment</span>
+              <span class="badge badge-success">On Track</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$85.50</p>
+              <p class="budget-limit">of $150.00 budget</p>
+            </div>
+          </article>
+
+          <!-- Card 5: Savings -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Savings Goal</span>
+              <span class="badge badge-accent">Growing</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$500.00</p>
+              <p class="budget-limit">Goal: $1,000.00/mo</p>
+            </div>
+          </article>
+
+          <!-- Card 6: Utilities -->
+          <article class="card" tabindex="0">
+            <div class="card-header">
+              <span class="category-title">Utilities</span>
+              <span class="badge badge-warning">Due Soon</span>
+            </div>
+            <div class="card-body">
+              <p class="amount">$165.20</p>
+              <p class="budget-limit">of $200.00 budget</p>
+            </div>
+          </article>
+
+        </div>
+      </main>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

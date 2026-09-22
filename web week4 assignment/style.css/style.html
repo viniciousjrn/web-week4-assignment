@@ -1,0 +1,241 @@
+/* ==========================================================================
+   1. CSS CUSTOM PROPERTIES (THEME & STRETCH GOAL DARK MODE)
+   ========================================================================== */
+:root {
+  --brand-color: #2563eb;
+  --accent-color: #10b981;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Stretch Goal: Dark Theme Automatic Override */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --brand-color: #3b82f6;
+    --accent-color: #34d399;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ==========================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   3. CSS GRID: MAIN DASHBOARD LAYOUT
+   ========================================================================== */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* 240px sidebar, remaining space for content */
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   4. FLEXBOX: SIDEBAR & NAVIGATION
+   ========================================================================== */
+.sidebar {
+  background-color: var(--card-bg);
+  border-right: 1px solid var(--border-color);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.brand h2 {
+  color: var(--brand-color);
+  font-size: 1.4rem;
+  padding-left: 12px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--brand-color);
+}
+
+/* ==========================================================================
+   5. MAIN WRAPPER & FLEXBOX HEADER
+   ========================================================================== */
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title h1 {
+  font-size: 1.5rem;
+}
+
+.header-title p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   6. CSS GRID: CATEGORY CARDS
+   ========================================================================== */
+.dashboard-content {
+  padding: 32px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card Component & Micro-interactions */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  /* Micro-interaction transition requirement (<= 250ms) */
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover and Keyboard Focus Animation */
+.card:hover,
+.card:focus {
+  transform: translateY(-4px);
+  box-shadow: var(--card-hover-shadow);
+  outline: 2px solid var(--brand-color);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-title {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.budget-limit {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* Badges */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.badge-success { background-color: rgba(16, 185, 129, 0.15); color: #059669; }
+.badge-warning { background-color: rgba(245, 158, 11, 0.15); color: #d97706; }
+.badge-accent  { background-color: rgba(37, 99, 235, 0.15);  color: var(--brand-color); }
+.badge-neutral { background-color: var(--border-color);       color: var(--text-secondary); }
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN MEDIA QUERY (< 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Collapse into single column layout */
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-menu {
+    flex-direction: row; /* Horizontal scrollable nav on small screens */
+    overflow-x: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
